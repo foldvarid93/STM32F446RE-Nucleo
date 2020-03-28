@@ -1,0 +1,70 @@
+  //GUI_Clear();
+  //
+  U16 color=0x0000;
+	  for(U16 R=0;R<32;R=R+2){
+		  for(U16 G=0;G<64;G=G+4){
+			  for(U16 B=0;B<32;B=B+2){
+				  color=((R<<11)&0xF800)|((G<<5)&0x07E0)|(B&0x001F);
+				  LcdClear(color);
+			  }
+		  }
+	  }
+	  //
+  LcdClear(0x0000);
+  GUI_SetColor(GUI_WHITE);
+  GUI_DispStringAt("Hello World", 100, 20);
+  HAL_Delay(500);
+  GUI_SetColor(GUI_BLUE);
+  GUI_FillCircle(200-28,120-28,40);
+  GUI_FillCircle(200+28,120-28,40);
+  GUI_POINT Points[4];
+  Points[0].x=200-56;
+  Points[0].y=120;
+  Points[1].x=200;
+  Points[1].y=120-56;
+  Points[2].x=200+56;
+  Points[2].y=120;
+  Points[3].x=200;
+  Points[3].y=120+56;
+  GUI_FillPolygon(Points,4, 0, 0);
+
+  HAL_Delay(1000);
+  //GUI_Clear();
+  LcdClear(0xFFFF);
+  LcdClear(0x07E0);
+  //MainTask2();
+  //
+  DrawPixel(10,10,0xFFFF);
+  DrawPixel(390,10,0xFFFF);
+  DrawPixel(10,230,0xFFFF);
+  DrawPixel(390,230,0xFFFF);
+  GUI_SetColor(0xFFFF);
+  GUI_DrawPixel(20,20);
+  GUI_DrawPixel(380,20);
+  GUI_DrawPixel(20,220);
+  GUI_DrawPixel(380,220);
+  //
+  LcdClear(0x0000);
+  GUI_DrawCircle(200,120,119);
+  /*
+  U16 x=10;
+  U16 y=10;
+  U16 x1=x;
+  U16 y1=y;
+  U16 dx=380;
+  U16 dy=220;
+  //U16 P=0xF800;//B
+  U16 P=0x07E0;//G
+  //U16 P=0x001F;//R
+  for(U16 i=0;i<dy;i++){
+	  y1=y+i;
+	  for(U16 j=0;j<dx;j++){
+		  x1=x+j;
+		  DrawPixel(x1,y1,P);
+	  }
+  }
+  */
+  HAL_Delay(500);
+  GUI_Clear();
+  HAL_Delay(500);
+  //
